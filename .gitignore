@@ -1,0 +1,6 @@
+# Ignore all files
+*
+
+!.env*
+!.gitignore
+!docker-compose.yml
