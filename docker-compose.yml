@@ -29,6 +29,19 @@ services:
       - ./wp_data:/var/www/html
     depends_on:
       - mysql
+  
+  swoole:
+    image: openswoole/swoole:latest
+    container_name: swoole
+    restart: always
+    ports:
+      - "9501:9501"
+    volumes:
+      - ./swoole:/usr/src/swoole
+    working_dir: /usr/src/swoole
+    command: php server.php
+    depends_on:
+      - wordpress
 
 volumes:
   db_data:
